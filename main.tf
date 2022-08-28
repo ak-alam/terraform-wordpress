@@ -7,3 +7,9 @@ module "vpc" {
   }
   name = local.prefix
 }
+
+module "IAM" {
+  source = "./modules/IAM"
+  roleName = var.role_name
+  policyPath = file("${path.module}/polices/ssm.json")
+}

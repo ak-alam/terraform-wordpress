@@ -4,3 +4,6 @@ vpc_ = {
   private_subnet = ["10.0.4.0/24", "10.0.3.0/24"]
 # private_subnet = []
 }
+
+
+role_name="SSM"

@@ -11,4 +11,9 @@ variable "vpc_" {
   })  
 }
 
+#IAM Variables
+variable "role_name" {
+  type = string
+  # default = "SSM"
+}
 

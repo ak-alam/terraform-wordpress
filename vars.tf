@@ -17,3 +17,21 @@ variable "role_name" {
   # default = "SSM"
 }
 
+#Security Groups
+variable "lb_IngressTraffic" {
+  type = map
+  # default = {
+  #   80 = ["0.0.0.0/0"]
+  # }
+}
+# variable "protocol" {}
+# variable "prefix" {}
+variable "db_IngressTraffic" {
+  type = map
+  # default = {
+  #   3306 = ["0.0.0.0/0"]
+  # }
+}
+variable "web_IngressTraffic" {
+  type = map
+}

@@ -7,3 +7,14 @@ vpc_ = {
 
 
 role_name="SSM"
+
+
+lb_IngressTraffic= {
+  "80" = ["0.0.0.0/0"]
+}
+db_IngressTraffic={
+  "3306" = ["0.0.0.0/0"]
+}
+web_IngressTraffic={
+  "80" = ["0.0.0.0/0"]
+}

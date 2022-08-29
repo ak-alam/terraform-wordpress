@@ -1,3 +1,7 @@
+variable "name" {
+  type = string
+  default = "ak"
+}
 variable "ami" {
   type = string
 }

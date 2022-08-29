@@ -6,4 +6,7 @@ resource "aws_instance" "instance" {
   subnet_id = var.subnetId
   iam_instance_profile = var.IAMInstanceProfile
   user_data = var.userDataPath
+  tags = {
+    "Name" = "${var.name}-DB"
+  }
 }

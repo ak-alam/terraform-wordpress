@@ -41,6 +41,9 @@ variable "web_IngressTraffic" {
   type = map
 }
 
+# variable "ssh-IngressTraffic" {
+#   type = map
+# }
 #Variable Instances 
 variable "ami_" {
   type = string
@@ -54,3 +57,41 @@ variable "instance_type" {
   type = string
   default = "t2.micro"
 }
+
+#Variable LoadBalancer
+# variable "lb_type" {
+#   type = string
+# }
+# variable "lb_schema" {
+#   type = bool
+# }
+# variable "security_groups" {
+#   type = list(string)
+# }
+# variable "subne_Ids"{
+#     type = list(string)
+# }
+# variable "targe_group_vars"{
+#     # type = map
+# }
+variable "protocol_nlb"{
+}
+variable "port_nlb" {
+  
+}
+variable "protocol_alb"{
+}
+variable "port_alb" {
+  
+}
+
+# variable "lb_type" {
+#   default = "network"
+# }
+
+# variable TG_Settings {}
+
+# variable "internal" {
+#   type    = bool
+#   default = false
+# }

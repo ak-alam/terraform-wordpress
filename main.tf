@@ -59,4 +59,39 @@ module "dbInstances" {
   subnetId = module.vpc.privateSubnet_out.0
   IAMInstanceProfile = module.IAM.instanceProfile
   userDataPath = file("${path.module}/userdata/db-installation.sh")
+  name = local.prefix
 }
+
+# Load balancers modules
+module "networkLB" {
+  source = "./modules/LB"
+  lbSchema = true #for internal & external LB (true=internal, false=external)
+  lbType = "network"
+  securityGroups = []
+  subneIds = module.vpc.privateSubnet_out
+  protocol = var.protocol_nlb
+  port = var.port_nlb
+  vpcId = module.vpc.vpcId_out
+  deregistrationDelay = "60"
+  path = ""
+  healthyThreshold = "3"
+  targetInstance = module.dbInstances.InstanceId_out
+
+}
+
+module "applicationLB" {
+  source = "./modules/LB"
+  lbSchema = false 
+  lbType = "application"
+  securityGroups = ["${module.lb-Sg.securityGroupId_out}"]
+  subneIds = module.vpc.publicSubtnet_out
+  protocol = var.protocol_alb
+  port = var.port_alb
+  vpcId = module.vpc.vpcId_out
+  deregistrationDelay = "60"
+  path = "/"
+  healthyThreshold = "3"
+  targetInstance = ""
+
+}
+

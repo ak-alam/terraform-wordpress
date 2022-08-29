@@ -24,3 +24,10 @@ source_SG=[]
 ami_="ami-0568773882d492fc8"
 key_name="akbar.pem"
 instance_type="t2.micro"
+
+#Load balancer
+protocol_nlb="TCP"
+port_nlb="3306"
+protocol_alb="HTTP"
+port_alb="80"
+

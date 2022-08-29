@@ -18,6 +18,11 @@ variable "role_name" {
 }
 
 #Security Groups
+
+variable "source_SG"{
+  type = list
+  default = []
+}
 variable "lb_IngressTraffic" {
   type = map
   # default = {
@@ -34,4 +39,18 @@ variable "db_IngressTraffic" {
 }
 variable "web_IngressTraffic" {
   type = map
+}
+
+#Variable Instances 
+variable "ami_" {
+  type = string
+  default = ""
+}
+variable "key_name" {
+  type = string
+  default = "akbar.pem"
+}
+variable "instance_type" {
+  type = string
+  default = "t2.micro"
 }

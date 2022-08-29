@@ -16,5 +16,11 @@ db_IngressTraffic={
   "3306" = ["0.0.0.0/0"]
 }
 web_IngressTraffic={
-  "80" = ["0.0.0.0/0"]
+  "80" = []
 }
+source_SG=[]
+
+# Instance
+ami_="ami-0568773882d492fc8"
+key_name="akbar.pem"
+instance_type="t2.micro"

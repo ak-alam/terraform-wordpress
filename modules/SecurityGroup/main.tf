@@ -11,6 +11,7 @@ resource "aws_security_group" "securityGroup" {
     to_port = ingress.key
     protocol = var.protocol
     cidr_blocks = ingress.value
+    security_groups = var.sourceSG
     }
   }
   egress {

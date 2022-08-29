@@ -8,5 +8,9 @@ variable "vpcId" {
 variable "ingressTraffic" {
   type = map
 }
+variable "sourceSG" {
+type = list
+default = []
+}
 variable "protocol" {}
 variable "prefix" {}

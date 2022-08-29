@@ -30,6 +30,7 @@ resource "aws_subnet" "privateSubnet" {
   availability_zone = element(data.aws_availability_zones.availabilityZone.names, count.index)
   tags = {
     "Name" = "${var.name}-PrivSubnet-${count.index + 1}"
+    Tier = "Private"
   }
 }
 

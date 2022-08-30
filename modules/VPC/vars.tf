@@ -1,12 +1,12 @@
-variable "name" {
+variable "prefix" {
   type = string
-  default = "ak"
+  # default = "ak"
 }
 variable "vpc" {
   type = object({
-  vpcCidr = string
-  publicSubnet = list(string)
-  privateSubnet = list(string)
+  vpc_cidr = string
+  public_subnet = list(string)
+  private_subnet = list(string)
   })  
 }
 

@@ -1,33 +1,33 @@
-variable "name" {
+variable "prefix" {
   type = string
-  default = "ak"
+  # default = "ak"
 }
 
-variable "lbSchema" {
+variable "internal" {
   type = bool
 }
-variable "lbType" {
+variable "type" {
   type = string
 }
-variable "securityGroups" {
+variable "security_groups" {
   type = list(string)
-  default = []
+  default = [""]
 }
-variable "subneIds"{
+variable "subne_Ids"{
     type = list(string)
 }
 
-variable "vpcId" {}
-variable "protocol"{}
-variable "port" {}
-variable "deregistrationDelay" {}
-variable "path" {
+variable "vpc_Id" {}
+variable "nlb"{
+  type = map
+  default = {
+    "3306"="TCP"
+  }
+}
+
+variable "tg_vars"{}
+variable "target_instance" {
   type = string
   default = ""
 }
-variable "healthyThreshold" {
-  
-}
-variable "targetInstance" {
-  
-}
+variable "deregistration_delay" {}

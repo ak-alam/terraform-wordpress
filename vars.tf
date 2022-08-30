@@ -11,41 +11,47 @@ variable "vpc_" {
   })  
 }
 
-#IAM Variables
+#Role Variables
 variable "role_name" {
   type = string
   # default = "SSM"
 }
 
-#Security Groups
-
-variable "source_SG"{
+variable "source_sg"{
   type = list
   default = []
 }
 variable "lb_IngressTraffic" {
   type = map
-  # default = {
-  #   80 = ["0.0.0.0/0"]
-  # }
+  default = {
+   "80" = ["0.0.0.0/0"]
+  }
 }
-# variable "protocol" {}
-# variable "prefix" {}
 variable "db_IngressTraffic" {
   type = map
-  # default = {
-  #   3306 = ["0.0.0.0/0"]
-  # }
+  default = {
+   "3306" = ["0.0.0.0/0"]
+   "22" = ["0.0.0.0/0"]
+  }
 }
-variable "web_IngressTraffic" {
+variable "jumphost_IngressTraffic" {
   type = map
+  default = {
+
+   "22" = ["0.0.0.0/0"]
+  }  
 }
 
-# variable "ssh-IngressTraffic" {
-#   type = map
-# }
+variable "web_IngressTraffic" {
+  type = map
+  default = {
+   "80" = ["0.0.0.0/0"]
+   "22" = ["0.0.0.0/0"]
+  }
+}
+
 #Variable Instances 
-variable "ami_" {
+variable "ami" {
   type = string
   default = ""
 }
@@ -57,41 +63,17 @@ variable "instance_type" {
   type = string
   default = "t2.micro"
 }
-
-#Variable LoadBalancer
-# variable "lb_type" {
-#   type = string
-# }
-# variable "lb_schema" {
-#   type = bool
-# }
-# variable "security_groups" {
-#   type = list(string)
-# }
-# variable "subne_Ids"{
-#     type = list(string)
-# }
-# variable "targe_group_vars"{
-#     # type = map
-# }
-variable "protocol_nlb"{
-}
-variable "port_nlb" {
-  
-}
-variable "protocol_alb"{
-}
-variable "port_alb" {
-  
+#Load balancer
+variable "deregistration_delay" {}
+variable "tg_settings" {}
+variable "target_instance" {
+  type = string
+  default = ""
 }
 
-# variable "lb_type" {
-#   default = "network"
-# }
+variable "template_name" {}
 
-# variable TG_Settings {}
-
-# variable "internal" {
-#   type    = bool
-#   default = false
-# }
+variable "max_size" {}
+variable "min_size" {}
+variable "desired_capacity" {}
+variable "healthCheck_grace_period" {}

@@ -1,16 +1,12 @@
 variable "name" {
   type = string
-  default = "ak"
+  default = "akbar"
 }
-variable "vpcId" {
+variable "vpc_id" {
   type = string
 }
-variable "ingressTraffic" {
+variable "ingress_traffic" {
   type = map
-}
-variable "sourceSG" {
-type = list
-default = []
 }
 variable "protocol" {}
 variable "prefix" {}

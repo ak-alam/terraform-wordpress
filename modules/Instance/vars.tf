@@ -1,26 +1,28 @@
-variable "name" {
+variable "prefix" {
   type = string
-  default = "ak"
+  # default = "ak"
 }
 variable "ami" {
   type = string
 }
-variable "keyName" {
+variable "key_name" {
   type = string
 }
-variable "instanceType" {
+variable "instance_type" {
   type = string
 }
-variable "securityGroups" {
+variable "security_groups" {
   type = list(string)
 }
-variable "subnetId" {
-  type = string
+variable "subnet_Id" {
+  # type = string
 }
 
-variable "IAMInstanceProfile" {
+variable "instance_profile" {
   type = string
+  default = ""
 }
-variable "userDataPath" {
+variable "user_data_path" {
   type = string
+  default = ""
 }

@@ -1,3 +1,3 @@
-output "InstanceId_out" {
+output "instance" {
   value = aws_instance.instance.id
 }
